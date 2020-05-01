@@ -4,6 +4,16 @@
 
 void text_out(cell *tmp)
 {
+    if (tmp->left) {
+        text_out(tmp->left);
+    }
+    if (tmp->type == 1)
+        printf("%d", tmp->val.value);
+    else
+        printf("%c", tmp->val.oper);
+    if (tmp->right) {
+        text_out(tmp->right);
+    }
 }
 
 void tree_out(cell *tmp, int space)
